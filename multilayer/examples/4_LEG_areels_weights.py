@@ -3,7 +3,7 @@
   spectra of multilayer systems. Reproduces Fig. 2b in [1].
 
   REFERENCES: 
-    [1] Wachsmuth, Hambach, Benner, and Kaiser, PRB ()...(2014)
+    [1] Wachsmuth, Hambach, Benner, and Kaiser, PRB (90) 235434 (2014)
 
   Copyright (c) 2014, rhambach, P. Wachsmuth. 
     This file is part of the EELcalc package and released

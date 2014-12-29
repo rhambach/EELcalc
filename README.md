@@ -20,5 +20,5 @@ of angular-resolved electron energy-loss (AR-EEL) spectra of
 
 **References**
 
-1. [P. Wachsmuth, R. Hambach, G. Benner, U. Kaiser, Phys.Rev.B **(??)**, ??? (2014).][1] 
-[1]: http://link.aps.org/doi/XXX
+1. [P. Wachsmuth, R. Hambach, G. Benner, U. Kaiser, Phys.Rev.B **(90)**, 235434 (2014).][1]
+[1]: http://dx.doi.org/10.1103/PhysRevB.90.235434

@@ -20,7 +20,7 @@
 
   REFERENCES
 
-    [1] Wachsmuth, Hambach, Benner, and Kaiser, PRB ()...(2014)
+    [1] Wachsmuth, Hambach, Benner, and Kaiser, PRB (90) 235434 (2014)
     [2] Supplemental Material of [1]
 
   Copyright (c) 2014, rhambach. 
