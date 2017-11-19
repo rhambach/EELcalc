@@ -60,15 +60,16 @@ class Multilayer:
 
     RETURNS:  V_nm 
     """
-    # prepare coulomb pot: coul[n,m] == cpow[n-m+N]
+    # prepare coulomb pot: coul[n,m] == cpow[N+n-m]
     N = self.N;
-    cpow = np.exp(-q*self.d) ** np.abs(np.arange(-N,N,dtype=float));
-    coul = np.empty((N,N));
+    cpow = np.exp(-q*self.d) ** np.abs(np.arange(N,-N,-1));
     coul = np.asarray([ cpow[N-i:2*N-i] for i in range(N)]);
     return coul;
+  
     ## alternative calculation for comparison
-    #coul2 = [[ c**np.abs(m-n) for n in range(N)] for m in range(N)];
-    #print np.linalg.norm(coul - coul2);
+    #c = np.exp(-q*self.d);
+    #coul2 = [[ c**np.abs(n-m) for m in range(N)] for n in range(N)];
+    #assert np.allclose(coul, coul2)
   
   def normal_modes(self,q):
     """
@@ -132,13 +133,14 @@ class Multilayer:
     RETURNS array with same shape as energy axis E
     """
     # prepare matrix for Fourier transform FT=e^{-iqzd(n-m)}
-    # analogous to the Coulomb matrix
+    # analogous to the Coulomb matrix, FT[n,m] == FTline[N+n-m]
     N = self.N;
     FTline = np.exp(-1.j*qz*self.d) ** np.arange(N,-N,-1);
-    # test: FTline = 2. ** np.arange(N,-N,-1,dtype=float);
-    FT     = np.empty((N,N));
     FT     = np.asarray([ FTline[N-i:2*N-i] for i in range(N)]);
-
+    ## alternative calculation
+    #FT2 = [[ np.exp(-1.j*qz*self.d)**(n-m) for m in range(N)] for n in range(N)];
+    #assert np.allclose(FT,FT2)
+ 
     # calculate susceptibility in real-space z=nd, z'=md
     sus_zzp = self.sus_matrix(q);
     nomega  = sus_zzp.shape[0];
